@@ -2,7 +2,6 @@
  * Exemplo 1.5.4 do livro The C Progeming Language 2ed.
  * Por B. Keenighan e D. Ritchie
  * Conta linhas palavras e caracteres fornecidos como entrada.
- *
  */
 
 #include <stdio.h>
