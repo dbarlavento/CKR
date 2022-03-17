@@ -1,2 +1,2 @@
 # CKR
-Exemplos e exercicios do livro The C Programing Language 2ed.
+Exemplos e exerccios do livro The C Programing Language 2ed.
