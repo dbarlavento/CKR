@@ -11,20 +11,10 @@
  int main()
  {
  	int c, //caracter de entrada
-		estado; //sinal, dentro ou fora de uma palvra
+		estado; //indica se dentro ou fora de uma palavra
 
 		estado = OUT;
 
-/*
-		while (( c = getchar()) != EOF) { 
-			if( c == ' ' || c == '\n' || c == '\t')
-				putchar('\n');
-			else {
-				estado = IN;
-				putchar(c);
-			}
-	}//fim de while
-*/
 		while ((c = getchar()) != EOF) {
 			if (c!= ' ' && c != '\t' && c != '\n'){
 				putchar(c);
