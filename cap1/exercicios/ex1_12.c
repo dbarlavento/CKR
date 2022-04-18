@@ -15,6 +15,7 @@
 
 		estado = OUT;
 
+/*
 		while (( c = getchar()) != EOF) { 
 			if( c == ' ' || c == '\n' || c == '\t')
 				putchar('\n');
@@ -22,5 +23,19 @@
 				estado = IN;
 				putchar(c);
 			}
-		}//fim de while
- }//fim de main
+	}//fim de while
+*/
+		while ((c = getchar()) != EOF) {
+			if (c!= ' ' && c != '\t' && c != '\n'){
+				putchar(c);
+				estado = IN;
+			}
+			else if (estado)
+			{
+				putchar('\n');
+				estado = OUT;
+			}
+		}
+
+		return 0;
+}//fim de main
