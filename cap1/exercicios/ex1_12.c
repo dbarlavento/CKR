@@ -1,6 +1,8 @@
 /*
  * Exercício 1.12 do Livro The C Programing Language 2 ed.
  * Imprime a entrada, uma palavra por linha.
+ * Na verdade imprime um conjunto de caracteres entre espaços em branco 
+ *	por linha!
  */
 
  #include <stdio.h>
