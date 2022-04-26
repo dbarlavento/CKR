@@ -17,9 +17,10 @@ int main()
 		estado,	//Indica se dentro ou fora de uma palavra
 		numLetras, 	//Número de letras numa palavra
 		numPalavras,	//Número de palavras inseridas
+		top,	//Número de palvras com número de letras mais frequêntes
 		hist[NL]; 	//Histograma do número de letras por palavra
  	
-	c = i = j = numLetras = numPalavras = 0;
+	c = i = j = numLetras = numPalavras = top  = 0;
 	
 	estado = OUT;
 	
@@ -44,25 +45,27 @@ int main()
 		}
 	}
 
-	printf("Número de palavras: %d\n", numPalavras);
+	//Encontra o maior número de eocorrências de letras
+	for (i = 0; i < NL; ++i)
+		if (top < hist[i])
+			top = hist[i];
 
-	printf("Distribuição do número de letras:\n");
-
-	for (i = 0; i < (NL - 1); ++i){
-		printf("%d\t%d:\t", (i + 1), hist[i]);
-
-		for (j = 0; j <= hist[i]; ++j)
-			printf("@");
+	//Imprime o histograma na vertical
+	for (i = top; i > 0; --i) {
+		printf("%d|\t\t", i);
 		
+		for (j = 0; j < NL; ++j) {
+			if (hist[j] >= i)
+				printf("# ");
+			else
+				printf("  ");
+		}
+
 		printf("\n");
 	}
 
-	printf("+%d\t%d:\t", NL, hist[NL - 1]);
-
-	for (j = 0; j <= hist[NL - 1]; ++j)
-		printf("@");
-	
-	printf("\n");
+	//Imprime o rodapé do gráfico
+	printf("\t\t1 2 3 4 5 6 7 8 9 10\n");
 
 	return 0;
 }
