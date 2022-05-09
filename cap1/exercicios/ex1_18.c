@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-#define MAXLINE 10
+#define MAXLINE 100
 
 //Busca a proxima linha na entrada
 int getLine(char newline[], int length);
@@ -14,7 +14,7 @@ int getLine(char newline[], int length);
 void copyLine(char to[], char from[]);
 
 //Remove os espaços em branco e tabulações no fim de uma string.
-int remRigthBlank(char old[], char new[]);
+void remRigthBlank(char line[], int tam);
 
 int main()
 {
@@ -24,17 +24,11 @@ int main()
 	char longest[MAXLINE]; //guarda a linha mais longa
 
 	len = max = 0;
-
-	while ((len = getLine(line, MAXLINE)) > 0) {
-		if (len > max) {
-			max = len;
-			copyLine(longest, line);
-		}
 	
-	}													
-	if (max > 1)
-		printf("%s\n", longest);
-																					
+	getLine(line, MAXLINE);
+	remRigthBlank(line, MAXLINE);
+	printf("%s", line);
+
 	return 0;
 }
 
@@ -45,16 +39,18 @@ int getLine(char line[], int tam)
 	i = 0;
 	c = 0;
 
-	for (i = 0;((c = getchar()) != EOF) && (c != '\n'); ++i)
-		if(i < tam - 1)
+	for (i = 0; (c = getchar()) != EOF && c != '\n'; ++i)
+		if(i < tam - 1) {
 			line[i] = c;
-
+			//printf("char read = %c\n", c);
+		}
+	
 	if ((c == '\n') && (i < tam - 1)) {
 		line[i] = c;
 		++i;
 	}
 
-	line[tam - 1] = '\0';
+	line[i] = '\0';
 																			
 	return i;
 }
@@ -67,27 +63,34 @@ void copyLine(char to[], char from[])
 		++i;
 }
 
-int remRigthBlank(char line[], int tam)
+void remRigthBlank(char line[], int tam)
 {
-	int i = tam - 1;
-	int fl = 0;
+	int i = 0;
+	int ff = 0;
+	int fc = 0;
 
-	//Verifica se é uma string bem formada e verifica seu final
-	if (line[i] == '\0')
-		if(line[i - 1] == '\n') 
-			fl = 2;
-		else 
-			fl = 1;
-	else	
-		return -1; 
-	
-	for (i >= 0 && (line[i] == '\t' || line == ' '); --i);
-	
-	if (fl >= 1)
-		line[i + 1] = '\0';
-	if (fl >= 2){
-		line[i] = '\n';
+	while (line[i] != '\0' && i < tam) {
+
+		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n')
+			fc = i;
+		//Detecta o fim da string
+		if (line[i] == '\n' && line[i + 1] == '\0')
+			ff = i;
+
+		//printf("i = %d\t char = %c\n", i, line[i]); 
+		++i;
 	}
 
-	return 1;
+	line[fc + 1] = '\n';
+	line[fc + 2] = '\0';
+
+//	if (ff) {
+//		line[fc + 1] = '\n';
+//		line[fc + 2] = '\0';
+//	}
+//	else
+//		line[fc + 1] = '\0';
+
+
+	//printf("FC = %d \t FF = %d \n", fc, ff);
 }
