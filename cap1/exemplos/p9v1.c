@@ -1,6 +1,6 @@
 /*
  * Exemplo 1.9 do livro The C Programing Language 2 ed.
- * PorB Keenighan e D. Ritchie.
+ * Por B. Keenighan e D. Ritchie.
  *	Lê um conjunto de linhas de texto e imprime a mais longa.
  */
 
