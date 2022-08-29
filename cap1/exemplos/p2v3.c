@@ -1,5 +1,5 @@
 /*
-	Programa 2 verçao 3 do livro de K&R 2Ed. 
+	Programa 2 versão 3 do livro de K&R 2Ed. 
 	Imprime uma tabela Fahrenheit-Celsius utilizando variaveis de 
 	ponto flutuante
 	Substitui o loop while por for
