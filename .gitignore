@@ -13,3 +13,6 @@
 [._]sw[a-p]
 # session
 Session.vim
+
+### Arquivos executáveis ###
+*.exe
