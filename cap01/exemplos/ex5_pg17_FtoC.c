@@ -6,8 +6,8 @@
 
 	Notas da versão:
 		* Utilização de variáveis de ponto flutuante (float).
-		* Loop é implementado com o comando "for".
-		* Definição dos valores como constantes simbolicas.
+		* Loop implementado com o comando "for".
+		* Definição dos valores como constantes simbólicas.
 */
 
 #include <stdio.h>
